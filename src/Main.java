@@ -5,23 +5,21 @@ public class Main {
         int depositAmount = 1_450; // Сумма пополнения
         int priceBonus = 100; // Стоимость бонуса
 
-        int countBonus = depositAmount / priceBonus; // Расчет количества бонусов
-
         //Вариант с if, else.
-        int sumAccount = moneyInAccount + countBonus; // Итоговая сумма на счете
-
+        int bonus;
         if (depositAmount > 1_000) {
-            System.out.println("Количество зачисленных бонусов = " + countBonus);
-            System.out.println("Итоговая сумма на счете = " + sumAccount);
+            bonus = depositAmount / priceBonus;
         } else {
-            System.out.println("Количество зачисленных бонусов = 0");
-            System.out.println("Итоговая сумма на счете = " + moneyInAccount);
+            bonus = 0;
         }
 
+        System.out.println("Количество зачисленных бонусов = " + bonus + " руб.");
+        System.out.println("Итоговая сумма на счете = " + (moneyInAccount + depositAmount + bonus) + " руб.");
+
         //Вариант с тернанрным оператором.
-        /*int sumAccount = moneyInAccount + (depositAmount > 1_000 ? countBonus : 0);
-        System.out.println("Количество зачисленных бонусов = " + (depositAmount > 1_000 ? countBonus : 0));
-        System.out.println("Итоговая сумма на счете = " + sumAccount);
+        /*int bonus = depositAmount / priceBonus;
+        System.out.println("Количество зачисленных бонусов = " + (depositAmount > 1_000 ? bonus : 0) + " руб.");
+        System.out.println("Итоговая сумма на счете = " + (moneyInAccount + depositAmount + ((depositAmount > 1_000) ? bonus : 0) + " руб."));
         */
     }
 }
